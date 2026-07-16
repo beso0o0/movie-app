@@ -5,17 +5,16 @@ import { useEffect } from 'react'
 const MovieDetails = () => {
     const { id } = useParams()
     const [movie, setMovie] = useState(null)
-    const getMovieDetails = async () => {
-        try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=81bebca94dadbb35bd29f06b418a6520`)
-            const data = await response.json()
-            setMovie(data)
-        } catch (err) {
-            console.error("Error fetching movie details:", err)
-        }
-    }
-
     useEffect(() => {
+        const getMovieDetails = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=81bebca94dadbb35bd29f06b418a6520`)
+                const data = await response.json()
+                setMovie(data)
+            } catch (err) {
+                console.error("Error fetching movie details:", err)
+            }
+        }
         getMovieDetails()
     }, [id])
 

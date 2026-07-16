@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
@@ -102,8 +102,8 @@ const Movielist = () => {
       <Typography variant="h4" gutterBottom>Featured Movie</Typography>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
         {featuredMovie.map(movie => (
-          <Link to={`/movie/${movie.id}`}>
-            <Card key={movie.id} style={{ width: '200px', margin: '10px', height: '400px', }}>
+          <Link key={movie.id} to={`/movie/${movie.id}`}>
+            <Card style={{ width: '200px', margin: '10px', height: '400px', }}>
               <CardMedia
                 component="img"
                 image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -131,9 +131,8 @@ const Movielist = () => {
         <Carousel autoPlay={true} infinite={true} responsive={upcomingResponsive} >
           {
             upcomingMovie.map(movie => (
-
-              <Link to={`/movie/${movie.id}`}>
-                <Card key={movie.id} style={{ width: '300px', margin: '30px', height: '400px', justifyContent: 'center', alignItems: 'center' }}>
+              <Link key={movie.id} to={`/movie/${movie.id}`}>
+                <Card style={{ width: '300px', margin: '30px', height: '400px', justifyContent: 'center', alignItems: 'center' }}>
                   <CardMedia
                     component="img"
                     image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
