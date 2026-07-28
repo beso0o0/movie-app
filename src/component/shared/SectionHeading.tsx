@@ -18,7 +18,10 @@ function SectionHeading({ eyebrow, title, subtitle }: SectionHeadingProps) {
           {eyebrow}
         </Typography>
       ) : null}
-      <Typography variant="h3" sx={{ mb: subtitle ? 1 : 0 }}>
+      <Typography
+        variant="h3"
+        sx={{ mb: subtitle ? 1 : 0, overflowWrap: "break-word", minWidth: 0 }}
+      >
         {title}
       </Typography>
       {subtitle ? (

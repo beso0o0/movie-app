@@ -1,7 +1,6 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
-import BoltRoundedIcon from "@mui/icons-material/BoltRounded";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
@@ -44,16 +43,16 @@ const responsive = {
   },
 };
 
-const singleSlideResponsive = {
+const upcomingResponsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-    slidesToSlide: 1,
+    items: 3,
+    slidesToSlide: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1,
-    slidesToSlide: 1,
+    items: 2,
+    slidesToSlide: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -176,6 +175,7 @@ function Home() {
               <Paper
                 sx={{
                   p: 2,
+                  overflow: "hidden",
                   borderRadius: 6,
                   backgroundColor: (theme) =>
                     theme.palette.mode === "dark"
@@ -228,6 +228,7 @@ function Home() {
       <Paper
         sx={{
           p: { xs: 3, md: 4 },
+          overflow: "hidden",
           borderRadius: 7,
           background: (theme) =>
             theme.palette.mode === "dark"
@@ -238,21 +239,15 @@ function Home() {
         <SectionHeading
           eyebrow="Premieres"
           title="Coming soon to your queue"
-          subtitle="Big posters, simpler copy, and better spacing make upcoming releases easier to scan."
+          subtitle="Fresh upcoming releases with cleaner spacing and smaller posters that are easier to scan."
         />
-        <Carousel autoPlay infinite responsive={singleSlideResponsive}>
+        <Carousel autoPlay infinite responsive={upcomingResponsive}>
           {upcomingMovies.map((movie) => (
-            <Box key={movie.id} sx={{ px: 1 }}>
-              <MovieCard movie={movie} compact />
+            <Box key={movie.id} sx={{ px: 1, pb: 1 }}>
+              <MovieCard movie={movie} />
             </Box>
           ))}
         </Carousel>
-        <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 3 }}>
-          <BoltRoundedIcon color="primary" />
-          <Typography color="text.secondary">
-            Dark/light mode is now built into the entire browsing experience.
-          </Typography>
-        </Stack>
       </Paper>
     </Container>
   );

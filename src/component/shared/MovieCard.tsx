@@ -29,7 +29,7 @@ function MovieCard({ movie, compact = false }: MovieCardProps) {
         borderRadius: 6,
         transition: "transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease",
         "&:hover": {
-          transform: "translateY(-8px)",
+          transform: compact ? "none" : "translateY(-8px)",
           boxShadow: (theme) =>
             theme.palette.mode === "dark"
               ? "0 28px 55px rgba(0,0,0,0.45)"
